@@ -22,7 +22,7 @@ const buildDir = path.resolve(__dirname, "..", "frontend", "build");
  app.use(express.static(buildDir)); 
   
  // Serve index.html for all other routes 
- app.get("*", (req: Request, res: Response) => { 
+ app.get("*", (req, res) => { 
    res.status(OK).sendFile(indexDir); 
  });
 app.listen(port, () => {
