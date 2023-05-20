@@ -22,9 +22,12 @@ const buildDir = path.resolve(__dirname, "..", "frontend", "build");
  app.use(express.static(buildDir)); 
   
  // Serve index.html for all other routes 
- app.get("*", (req, res) => { 
-   res.status(OK).sendFile(indexDir); 
- });
+app.get("*", function (req, res) {
+  res.status(200).sendFile(indexDir);
+});
+
+
+
 app.listen(port, () => {
   console.log(`Server radi na portu: ${port}`);
 });
