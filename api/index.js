@@ -13,6 +13,18 @@ app.get("/api/v1", (req, res) => {
   res.json("Hello you 123");
 });
 
+
+
+const buildDir = path.resolve(__dirname, "..", "frontend", "build"); 
+ const indexDir = path.join(buildDir, "index.html"); 
+  
+ // Build directory 
+ app.use(express.static(buildDir)); 
+  
+ // Serve index.html for all other routes 
+ app.get("*", (req: Request, res: Response) => { 
+   res.status(OK).sendFile(indexDir); 
+ });
 app.listen(port, () => {
   console.log(`Server radi na portu: ${port}`);
 });
