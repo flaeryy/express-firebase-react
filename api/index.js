@@ -18,16 +18,16 @@ app.get("/api/v1", (req, res) => {
 app.use("/api/basicFetch", basicFetchRouter);
 app.use("/api/search", searchFetchRouter);
 
-// const buildDir = path.resolve(__dirname, "..", "frontend", "build");
-// const indexDir = path.join(buildDir, "index.html");
+const buildDir = path.resolve(__dirname, "..", "frontend", "build");
+const indexDir = path.join(buildDir, "index.html");
 
 // Build directory
-// app.use(express.static(buildDir));
+app.use(express.static(buildDir));
 
 // Serve index.html for all other routes
-/* app.get("*", function (req, res) {
+app.get("*", function (req, res) {
   res.status(200).sendFile(indexDir);
-}); */
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
